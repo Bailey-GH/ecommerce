@@ -77,7 +77,8 @@ export const StateContext = ({children}) => {
                 onAdd,
                 onRemove, 
                 totalQuantities, 
-                totalPrice
+                totalPrice,
+                setQty
             }}>
             {children}
         </ShopContext.Provider>

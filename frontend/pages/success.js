@@ -2,6 +2,7 @@ import {useRouter} from 'next/router';
 import styled from 'styled-components';
 const stripe = require('stripe')(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
 const {motion} = require('framer-motion');
+import formatMoney from '../lib/formatMoney';
 
 export async function getServerSideProps(params) {
     const order = await stripe.checkout.sessions.retrieve(
@@ -42,7 +43,7 @@ export default function Sucess({order}) {
                             <div key={item.id}>
                                 <p>Product: {item.description}</p>
                                 <p>Quantity: {item.quantity}</p>
-                                <p>Price: {item.price.unit_amount}</p>
+                                <p>Price: {formatMoney(item.price.unit_amount)}</p>
                             </div>
                         ))}
                     </OrderInfo>
