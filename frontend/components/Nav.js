@@ -5,13 +5,17 @@ import Cart from "./Cart";
 import { useStateContext } from "../lib/context";
 const { AnimatePresence, motion } = require("framer-motion");
 import User from "./User";
+import styled from "styled-components";
 
 export default function Nav() {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
     <NavStyles>
-      <Link href="/">Home</Link>
+      <Styler>
+        <Link href="/homepage">Home</Link>
+        <Link href="/">Shop</Link>
+      </Styler>
       <NavItems>
         <User />
         <div onClick={() => setShowCart(true)}>
@@ -28,3 +32,9 @@ export default function Nav() {
     </NavStyles>
   );
 }
+
+const Styler = styled.div `
+  a{
+    padding: 0rem 2rem;
+  }
+`;
