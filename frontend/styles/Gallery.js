@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Gallery = styled.div `
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-gap: 2rem;
+    margin: 2rem 0rem;
 `;
